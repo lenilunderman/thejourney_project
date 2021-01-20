@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 #SECRET_KEY = 'ghd4w@r!)%7bpblyksr#2nihb3-fyueok##!rk4dvfm7oxsxmx'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production!!!
 DEBUG = False
 
 ALLOWED_HOSTS = ['thejourneytech.herokuapp.com','127.0.0.1','localhost']
