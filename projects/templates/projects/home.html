@@ -1,0 +1,67 @@
+{% extends "projects/base.html" %}
+{% load static %}
+{% block content %}
+<section class="hero-banner">
+    <div class="columns is-vcentered">
+        <div class="column mt-6 is-vcentered">
+          <h1 class="is-size-2 has-text-centered py-5 has-text-weight-medium"> How pursuing my struggle made me a better developer. </h1>
+          <p class="mx-4 is-hidden-mobile is-size-5"> Hey <strong>:-)</strong> Thank you for visiting my site. <br>
+            This is an autobiography of how I became a better developer. </p>
+        </div>
+        <div class="column mt-6 has-text-centered">
+          <img src="{% static "projects/plane.jpg" %}" alt="plane">
+        </div>
+      </div>
+</section>
+
+  <!-- section about projects -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <h1 class="has-text-centered is-size-3 has-text-weight-medium py-4 mb-4"> How to escape the tutorial hell?! </h1>
+      
+      <!--cards-->
+      <div class="columns has-text-centered pt-4">
+          {% for project in projects %}
+          
+          <div class="column">
+            <div class="card">
+            {% if project.project_url %}
+              <a href="{{ project.project_url }}" target="_blank">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                    <img src="{{ project.project_image.url }}" alt="Placeholder image">
+                    </figure>
+                </div>  
+              </a>
+            {% else %}
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                    <img src="{{ project.project_image.url }}" alt="Placeholder image">
+                    </figure>
+                </div>
+            {% endif %} 
+              
+              <div class="card-content">
+                <div class="content">
+                    <h1 class="is-size-6">{{project.project_short_description}}</h1>
+                    
+                    {% if project.project_type %}
+                        <a>#{{project.project_type}}</a>  
+                    {% else %}
+                        <a>#article</a> 
+                    {% endif %}
+
+                  <br>
+                  <time datetime="2021-1-1"> {{project.project_date}}</time>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {% endfor %}
+
+      </div>
+      
+    </div>
+  </section>
+{% endblock %}
